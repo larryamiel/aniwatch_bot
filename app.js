@@ -43,7 +43,7 @@ function query() {
                     console.log(message);
                     
                     // Tweet Message
-                    tweet( message );
+                    // tweet( message );
 
                 }
                 else {
@@ -81,4 +81,4 @@ function tweet( message ) {
 }
 
 // Query Every 5 Minutes
-setInterval( query, 1000 * 60 * 5 );
+setInterval( query, 1000 * 60 * 15 );
