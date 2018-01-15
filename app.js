@@ -11,7 +11,7 @@ const config = require('./config');
 
 // Global Variables
 let url = 'https://ww4.gogoanime.io/';
-let previousAnime = '';
+let previousAnimeList = [];
 
 // Twit Middle Ware
 var T = new Twit( config );
@@ -25,30 +25,32 @@ function query() {
             $ = cheerio.load(body);
 
             // Title and Episode
-            var title = $('ul.items li p.name a').html();
-            var episode = $('ul.items li p.episode').html();
+            $('ul.items li').each(function(){
 
-            // Change Previous Anime
-            if( previousAnime != title + ' ' + episode ){
+                var title = $(this).find('p.name a').html();
+                var episode = $(this).find('p.episode').html();
 
-                // Update
-                previousAnime = title + ' ' + episode;
+                // Change Previous Anime
+                if( !previousAnimeList.includes(title + ' ' + episode) ){
 
-                // Update Message
-                var message = previousAnime + ' is now Available!';
+                    // Update
+                    previousAnimeList.push(title + ' ' + episode);
 
-                // Log Message
-                console.log(message);
-                
-                // Tweet Message
-                tweet( message );
+                    // Update Message
+                    var message = title + ' ' + episode + ' is now Available!';
 
-            }
-            else {
-                
-                console.log('No New Anime Update');
+                    // Log Message
+                    console.log(message);
+                    
+                    // Tweet Message
+                    tweet( message );
 
-            }
+                }
+                else {
+                    console.log('No New Anime Update');
+                }
+
+            });
 
         }
         else {
@@ -79,4 +81,4 @@ function tweet( message ) {
 }
 
 // Query Every 5 Minutes
-setInterval( query, 1000 * 5 );
+setInterval( query, 1000 * 60 * 5 );
