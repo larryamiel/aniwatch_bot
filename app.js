@@ -46,7 +46,7 @@ function query() {
             }
             else {
                 
-                console.log(' No New Anime Update ');
+                console.log('No New Anime Update');
 
             }
 
