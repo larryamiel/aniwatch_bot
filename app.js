@@ -43,7 +43,7 @@ function query() {
                     console.log(message);
                     
                     // Tweet Message
-                    // tweet( message );
+                    tweet( message );
 
                 }
                 else {
