@@ -44,6 +44,11 @@ function query() {
                 tweet( message );
 
             }
+            else {
+                
+                console.log(' No New Anime Update ');
+
+            }
 
         }
         else {
