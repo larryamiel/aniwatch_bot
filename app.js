@@ -37,7 +37,7 @@ function query() {
                     previousAnimeList.push(title + ' ' + episode);
 
                     // Update Message
-                    var message = title + ' ' + episode + ' is now Available!';
+                    var message = title + ' ' + episode + ' is now Available! #anime #aniwatch #winteranime';
 
                     // Log Message
                     console.log(message);
