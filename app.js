@@ -106,4 +106,4 @@ function tweet( message ) {
 
 // Query Every 5 Minutes
 query();
-setInterval( query, 1000 * 60 * 15 );
+setInterval( query, 1000 * 60 * 60 * 12 );
